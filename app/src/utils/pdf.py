@@ -81,10 +81,11 @@ class JugadorInforme():
                              3: [255, 255, 0],
                              4: [128, 0,   255],
                              5: [0,   0,   255],
-                             6: [153, 102, 0],
-                             7: [255, 128, 0],
-                             8: [255, 0,   0],
-                             9: [255, 255, 255]
+                             6: [93, 173, 226],
+                             7: [153, 102, 0],
+                             8: [255, 128, 0],
+                             9: [255, 0, 0],
+                             10: [255, 255, 255]
         }
         pdf.set_fill_color(r=rgb_seg[id_seguimiento][0], g=rgb_seg[id_seguimiento][1], b=rgb_seg[id_seguimiento][2])
         pdf.rect(x=pdf.x, y=pdf.y+2, w=6, h=6, style="FD")
