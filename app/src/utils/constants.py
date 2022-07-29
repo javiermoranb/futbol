@@ -27,6 +27,7 @@ URL_PARAM_ID_JUGADOR = 'id_jugador'
 URL_PARAM_DESCRIPCION = 'desc'
 URL_PARAM_MIN = 'min'
 URL_PARAM_NOMBRE = 'nombre'
+URL_PARAM_ORDER_BY= 'order_by'
 
 ACTIVE_YES ='Y'
 ACTIVE_NO = 'N'

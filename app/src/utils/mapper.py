@@ -40,11 +40,11 @@ class Mapper:
                         'pie' : {
                             'id_pie': jugador.pie.id_pie,
                             'descripcion': jugador.pie.descripcion
-                        },
+                        } if jugador.pie else '',
                         'somatotipo' : {
                             'id_somatotipo': jugador.somatotipo.id_somatotipo,
                             'descripcion': jugador.somatotipo.descripcion
-                        },
+                        } if jugador.somatotipo else '',
                         'estatura' : jugador.estatura,
                         'pais' : {
                             'id_pais': jugador.pais.id_pais,
@@ -53,7 +53,7 @@ class Mapper:
                         'nacionalidad' : {
                             'id_pais': jugador.nacionalidad.id_pais,
                             'nombre': jugador.nacionalidad.nombre
-                        },
+                        } if jugador.nacionalidad else '',
                         'posicion1' : {
                             'id_posicion': jugador.posicion1.id_posicion,
                             'descripcion': jugador.posicion1.descripcion
@@ -61,7 +61,7 @@ class Mapper:
                         'posicion2' : {
                             'id_posicion': jugador.posicion2.id_posicion,
                             'descripcion': jugador.posicion2.descripcion
-                        },
+                        } if jugador.posicion2 else '',
                         'perfiles': self.map_jugador_perfil_as_json(jugador)
 
                     }
@@ -84,14 +84,14 @@ class Mapper:
                         apodo = data_jugador['apodo'],
                         anio = data_jugador['anio'],
                         id_equipo = data_jugador['id_equipo'],
-                        numero = data_jugador['numero'],
-                        id_pie = data_jugador['id_pie'],
-                        id_somatotipo = data_jugador['id_somatotipo'],
-                        estatura = data_jugador['estatura'],
+                        numero = data_jugador['numero'] if 'numero' in data_jugador else None,
+                        id_pie = data_jugador['id_pie'] if 'id_pie' in data_jugador else None,
+                        id_somatotipo = data_jugador['id_somatotipo'] if 'id_somatotipo' in data_jugador else None,
+                        estatura = data_jugador['estatura'] if 'estatura' in data_jugador else None,
                         id_pais = data_jugador['id_pais'],
-                        id_pais_nacionalidad = data_jugador['id_pais_nacionalidad'],
+                        id_pais_nacionalidad = data_jugador['id_pais_nacionalidad'] if 'id_pais_nacionalidad' in data_jugador else None,
                         id_posicion1 = data_jugador['id_posicion1'],
-                        id_posicion2 =  data_jugador['id_posicion2'])
+                        id_posicion2 =  data_jugador['id_posicion2'] if 'id_posicion2' in data_jugador else None)
         self.add_jugador_perfil(db, jugador, data_jugador['perfiles'])
         return jugador
         

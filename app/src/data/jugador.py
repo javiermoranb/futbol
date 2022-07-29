@@ -18,8 +18,6 @@ def get_jugador(db, args):
         
 
 def insert_jugador(db, data_jugador):
-    #id_jugador = db.session.query(func.max(Jugador.id_jugador)).first()
-    #data_jugador['id_jugador']  = id_jugador._data[0]+1
     newJugador = Mapper().map_json_as_jugador(db, data_jugador)
     
     db.session.add(newJugador)
