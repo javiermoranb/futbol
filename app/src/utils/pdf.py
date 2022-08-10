@@ -45,10 +45,15 @@ class JugadorInforme():
                                 [40,10,jugador.pais.nombre,0,0]])
         
         self.multi_cell(pdf, [  [80,10,'{} cm'.format(jugador.estatura),0,0],
-                                [40,10,jugador.somatotipo.descripcion,0,0]])
+                                [40,10,jugador.somatotipo.descripcion
+                                 if jugador.somatotipo else '',0,0]])
         
-        self.multi_cell(pdf, [  [80,10,'{}, {}'.format(jugador.posicion1.descripcion, jugador.posicion2.descripcion),0,0],
-                                [40,10, jugador.pie.descripcion,0,0]])
+        self.multi_cell(pdf, [  [80,10,'{}, {}'.format(jugador.posicion1.descripcion
+                                                       if jugador.posicion1 else '', 
+                                                       jugador.posicion2.descripcion
+                                                       if jugador.posicion2 else ''),0,0],
+                                [40,10, jugador.pie.descripcion
+                                 if jugador.pie else '',0,0]])
         
         pdf.cell(0, 10, ', '.join(map(str, map(lambda perfil: perfil.descripcion, jugador.perfiles))), 0, 1)
         
