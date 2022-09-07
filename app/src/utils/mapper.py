@@ -140,6 +140,8 @@ class Mapper:
                 
                 
             })
+            output[-1].update(Mapper().map_jugador_as_json(valoracion.jugadores).get_json())
+            
         return jsonify({'valoraciones': output} if isinstance(result, list) else {'valoracion': output[0]})
        
        
