@@ -91,12 +91,21 @@ class JugadorInforme():
                              7: [153, 102, 0],
                              8: [255, 128, 0],
                              9: [255, 0, 0],
-                             10: [255, 255, 255]
+                             10: [255, 255, 255],
+                             11: [0,   0,   0]
         }
+        
         pdf.set_fill_color(r=rgb_seg.get(id_seguimiento, rgb_default)[0], 
                            g=rgb_seg.get(id_seguimiento, rgb_default)[1], 
                            b=rgb_seg.get(id_seguimiento, rgb_default)[2])
         pdf.rect(x=pdf.x, y=pdf.y+2, w=6, h=6, style="FD")
+        if id_seguimiento == 11:
+            pdf.set_x(10.5)
+            pdf.set_text_color(r=255,g=255,b=255)
+            pdf.cell(0, 10, 'T', 0, 0)
+            pdf.set_text_color(r=0,g=0,b=0)
+            pdf.set_x(16)
+        
         
     def multi_cell(self, pdf, cells):
         x = pdf.x
