@@ -81,6 +81,7 @@ class JugadorInforme():
             self.multi_cell(pdf, [  [200,5,'{}'.format(valoracion.descripcion),0,0]])
 
     def draw_rect_seguimiento(self, pdf: PDF, id_seguimiento):
+        rgb_default = [255, 255, 255]
         rgb_seg =           {1: [0,   0,   0],
                              2: [0,   255, 0],
                              3: [255, 255, 0],
@@ -92,7 +93,9 @@ class JugadorInforme():
                              9: [255, 0, 0],
                              10: [255, 255, 255]
         }
-        pdf.set_fill_color(r=rgb_seg[id_seguimiento][0], g=rgb_seg[id_seguimiento][1], b=rgb_seg[id_seguimiento][2])
+        pdf.set_fill_color(r=rgb_seg.get(id_seguimiento, rgb_default)[0], 
+                           g=rgb_seg.get(id_seguimiento, rgb_default)[1], 
+                           b=rgb_seg.get(id_seguimiento, rgb_default)[2])
         pdf.rect(x=pdf.x, y=pdf.y+2, w=6, h=6, style="FD")
         
     def multi_cell(self, pdf, cells):
