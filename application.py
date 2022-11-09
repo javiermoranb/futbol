@@ -18,7 +18,7 @@ import warnings
 import app.src.utils.constants as c
 from app.src.data.orm import Equipo, Perfil, Pie, Posicion, Seguimiento, Somatotipo, User, Visualizacion
 
-# Quitar warnings innecesarios de la salida
+# Quitar warnings innecesarios de la salida 
 warnings.filterwarnings('ignore')
 
 # -*- coding: utf-8 -*-
