@@ -8,7 +8,7 @@ def get_jugador(db, args):
     if c.URL_PARAM_ID in args:
         result = query.filter_by(id_jugador = args[c.URL_PARAM_ID]).first()
     elif c.URL_PARAM_NOMBRE in args:
-        search = "{}%".format(args[c.URL_PARAM_NOMBRE])
+        search = "%{}%".format(args[c.URL_PARAM_NOMBRE])
         result = query.filter(Jugador.nombre.ilike(search))\
             .order_by(Jugador.nombre).all()
     else:
