@@ -30,6 +30,8 @@ class JugadorInforme():
     def create_informe(self, user: User, jugador: Jugador, valoraciones):
         locale.setlocale(locale.LC_TIME, 'es_ES')
         pdf = PDF()
+        pdf.add_font('DejaVuSans', '', 'app/resources/DejaVuSans.ttf', uni=True)
+        pdf.add_font('DejaVuSans', 'B', 'app/resources/DejaVuSans-Bold.ttf', uni=True)
         pdf.set_title('{} - Informe de jugador'.format(user.username))
         self.create_body(pdf, jugador, valoraciones)
         return pdf
@@ -37,7 +39,7 @@ class JugadorInforme():
     def create_body(self, pdf: PDF, jugador: Jugador, valoraciones):        
         pdf.alias_nb_pages()
         pdf.add_page()
-        pdf.set_font('Arial', 'B', 15)
+        pdf.set_font('DejaVuSans', 'B', 13)
         pdf.cell(0, 10, jugador.nombre, 0, 1)
         
         pdf.set_font('Times', '', 12)
@@ -64,7 +66,7 @@ class JugadorInforme():
         pdf.ln(20)
         pdf.set_font('Arial', 'B', 12)
         pdf.cell(0, 10, 'Valoraciones', 0, 1)
-        pdf.set_font('Times', '', 12)
+        pdf.set_font('DejaVuSans', '', 10)
         for valoracion in valoraciones:
             pdf.ln(3)
             pdf.dashed_line(10, pdf.y, 180, pdf.y, 1, 0)
